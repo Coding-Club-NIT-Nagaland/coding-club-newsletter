@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎪 Hall of Rides — Code Carnival Cosmos</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="page-header">
+        <a href="index.html" class="back-home">← Back to Cosmos</a>
+        <h1>🎪 Hall of Rides — Relive the Magic!</h1>
+    </div>
+
+    <section class="filters">
+        <input type="text" id="search-input" placeholder="🔍 Search by topic, month, event..."
+            class="search-box shimmer">
+        <div class="filter-tags">
+            <span class="tag active" data-filter="all">All</span>
+            <span class="tag" data-filter="hackathon">Hackathons</span>
+            <span class="tag" data-filter="tutorial">Tutorials</span>
+            <span class="tag" data-filter="meme">Memes</span>
+            <span class="tag" data-filter="event">Events</span>
+        </div>
+    </section>
+
+    <div class="archive-grid" id="archive-container">
+        <!-- Populated by JS -->
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

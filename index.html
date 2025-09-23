@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🌌 Code Carnival Cosmos — Where Code Meets Wonder</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- COSMIC CANVAS (STARS/NEBULA) -->
+    <div id="cosmic-layer"></div>
+
+    <!-- CONFETTI CANVAS -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- THEME TOGGLE -->
+    <div class="theme-toggle">
+        <button id="toggle-theme" class="btn-icon">🌓</button>
+        <button id="toggle-universe" class="btn-icon">🌌</button>
+        <button id="toggle-music" class="btn-icon">🔊</button>
+    </div>
+
+    <!-- COMMUNITY PULSE -->
+    <div class="community-pulse">
+        <div>🚀 <span id="coder-count">243</span> coders exploring the cosmos</div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1 class="glow-text">🌌 Welcome to the <span>Code Carnival Cosmos</span> 🎪</h1>
+        <p class="subtitle">Where freshers launch, seniors guide, and code becomes magic.</p>
+        <button id="explore-btn" class="pulse-btn">Launch Your First Ride →</button>
+
+        <!-- FLOATING BALLOONS -->
+        <div class="floating-balloons">
+            <img src="assets/images/balloon-red.png" class="balloon balloon-1" alt="Red Balloon">
+            <img src="assets/images/balloon-blue.png" class="balloon balloon-2" alt="Blue Balloon">
+            <img src="assets/images/balloon-yellow.png" class="balloon balloon-3" alt="Yellow Balloon">
+        </div>
+
+        <!-- CONSTELLATION MAP -->
+        <div class="constellation-map">
+            <div class="star" data-topic="hackathon" style="top: 25%; left: 20%;">✦</div>
+            <div class="star" data-topic="tutorial" style="top: 50%; left: 75%;">✦</div>
+            <div class="star" data-topic="meme" style="top: 70%; left: 30%;">✦</div>
+            <div class="star" data-topic="event" style="top: 40%; left: 85%;">✦</div>
+        </div>
+    </section>
+
+    <!-- FEATURED NEWSLETTER -->
+    <section class="featured">
+        <h2>This Month’s Cosmic Ride 🚀</h2>
+        <div class="card tilt-card">
+            <img src="assets/images/sep-cover.jpg" alt="September Cover" class="card-img wobble-hover">
+            <div class="card-content">
+                <h3>September 2025: Hacktoberfest Kickoff!</h3>
+                <p>First PR? We got you. Swag? Double yes. Mentorship? Unlimited.</p>
+                <a href="newsletters/2025-09.html" class="btn btn-glow">Board the Ship →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARCHIVE PREVIEW -->
+    <section class="archive-preview">
+        <h2>Been Here Before? Relive the Rides! 🎡</h2>
+        <div class="rides-grid">
+            <a href="newsletters/2025-08.html" class="ride-card slide-in-left">
+                <img src="assets/images/aug-cover.jpg" alt="August Cover">
+                <h4>August 2025</h4>
+                <p>Freshers Week Madness!</p>
+            </a>
+            <a href="newsletters/2025-07.html" class="ride-card slide-in-left">
+                <img src="assets/images/july-cover.jpg" alt="July Cover">
+                <h4>July 2025</h4>
+                <p>Summer Project Showcase</p>
+            </a>
+        </div>
+        <a href="archive.html" class="btn btn-rainbow">Explore All Rides →</a>
+    </section>
+
+    
+    <!-- #Future Updates -->
+    <!-- LAUNCH CHECKLIST -->
+    <!-- <section class="launch-checklist">
+        <h3>🚀 Ready for Liftoff?</h3>
+        <ul>
+            <li>✅ Joined Discord?</li>
+            <li>✅ Read Sept Newsletter?</li>
+            <li>✅ Submitted First PR?</li>
+            <li>🪐 Found Easter Egg?</li>
+        </ul>
+    </section> -->
+
+    <section class="suggest-ride cosmic-form">
+        <h3>🌠 What’s Your Dream Newsletter?</h3>
+        <p>Want a guide on Web3? AI? Game Dev? Tell us below — your wish fuels our next ride!</p>
+    
+        <form id="newsletter-suggestion-form" class="cosmic-input-form">
+            <!-- VISIBLE FIELDS -->
+            <div class="form-group">
+                <label for="suggestion-topic">✨ Your Cosmic Suggestion</label>
+                <textarea id="suggestion-topic" name="entry.1382388080"
+                    placeholder="e.g., 'Build a Discord bot with Python', 'Quantum Computing for Freshers', 'How to ace Hacktoberfest?'"
+                    rows="4" required></textarea>
+            </div>
+    
+            <div class="form-group">
+                <label for="suggestion-email">📬 Your Email (so we can thank you or ask follow-ups!)</label>
+                <input type="email" id="suggestion-email" name="entry.459245740" placeholder="you@codeclub.cosmos">
+            </div>
+    
+            <!-- HIDDEN FIELDS (AUTOFILLED BY JS) -->
+            <input type="hidden" name="entry.683957702" id="auto-context" value="">
+    
+            <!-- SUBMIT BUTTON -->
+            <button type="submit" class="pulse-btn" style="margin-top: 20px; font-size: 1.1rem; padding: 15px 30px;">
+                🚀 Launch My Suggestion
+            </button>
+    
+            <!-- SUCCESS MESSAGE -->
+            <div id="form-success" class="achievement-unlock" style="display: none; margin-top: 20px;">
+                <h3>🎉 Cosmic Suggestion Received!</h3>
+                <p>Thank you, Star Captain 🌟 Your idea is now fueling our next newsletter ride.</p>
+            </div>
+        </form>
+    </section>
+
+    <!-- INTERACTIVE BOT -->
+    <div class="bot-corner" id="club-bot">
+        <img src="assets/images/robot-wink.gif" class="bot-avatar bounce" alt="Club Bot">
+        <div class="speech-bubble pop-up">Psst... ask me anything! 👉</div>
+    </div>
+
+    <!-- AUDIO -->
+    <audio id="cosmic-music"
+        src="assets/music/interlinked.mp3"
+        loop></audio>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
