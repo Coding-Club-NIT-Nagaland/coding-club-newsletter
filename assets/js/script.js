@@ -139,56 +139,132 @@ document.addEventListener('DOMContentLoaded', () => {
             const existing = document.querySelector('.bot-chat');
             if (existing) return;
 
+            // Get current theme for styling
+            const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+            const bgColor = isDark ? 'rgba(26, 26, 46, 0.95)' : 'rgba(248, 249, 250, 0.95)';
+            const textColor = isDark ? '#f8f9fa' : '#1a1a2e';
+            const inputBg = isDark ? 'rgba(255,255,255,0.1)' : '#fff';
+            const inputBorder = isDark ? 'rgba(255,255,255,0.2)' : '#ddd';
+            const userMsgBg = isDark ? '#4ecdc4' : '#2a9d8f';
+            const botMsgBg = isDark ? 'rgba(255,255,255,0.1)' : '#f0f0f0';
+
             const chat = document.createElement('div');
+            chat.className = 'bot-chat';
             chat.style.cssText = `
-        position: fixed; bottom: 120px; right: 30px; width: 300px; background: white; 
-        border-radius: 20px; padding: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.3); 
-        z-index: 9999; font-family: 'Fredoka', sans-serif;
-      `;
+            position: fixed; 
+            bottom: 120px; 
+            right: 30px; 
+            width: 320px; 
+            background: ${bgColor}; 
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px; 
+            padding: 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4); 
+            z-index: 9999; 
+            font-family: 'Fredoka', sans-serif;
+            color: ${textColor};
+            transition: all 0.3s ease;
+        `;
             chat.innerHTML = `
-        <div class="bot-header" style="font-weight: bold; color: #1a1a2e; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
-          💬 Club Bot v2
-          <button id="close-bot" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">×</button>
-        </div>
-        <div class="bot-messages" id="bot-messages" style="max-height: 200px; overflow-y: auto; margin-bottom: 15px;">
-          <div class="bot-msg" style="background: #f0f0f0; padding: 10px; border-radius: 10px; margin-bottom: 10px; font-size: 0.9rem;">
-            Hey there! Ask me:<br>“How to join?” or “What’s next event?”
-          </div>
-        </div>
-        <input type="text" id="bot-input" placeholder="Type here..." style="width: 100%; padding: 10px; border-radius: 50px; border: 1px solid #ddd; outline: none;" />
-      `;
+            <div class="bot-header" style="font-weight: 700; color: ${isDark ? '#ffd166' : '#ff6b6b'}; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; font-size: 1.2rem;">
+                👾 Club Bot v2
+                <button id="close-bot" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: ${textColor};">&times;</button>
+            </div>
+            <div class="bot-messages" id="bot-messages" style="max-height: 220px; overflow-y: auto; margin-bottom: 15px; padding-right: 5px;">
+                <div class="bot-msg" style="background: ${botMsgBg}; padding: 12px; border-radius: 12px; margin-bottom: 12px; font-size: 0.95rem; line-height: 1.4;">
+                    <strong>Cosmic Helper:</strong><br>
+                    Ask me anything!<br>
+                    Try: “How to join?”, “What’s next event?”, or “Where’s the swag?”
+                </div>
+            </div>
+            <input 
+                type="text" 
+                id="bot-input" 
+                placeholder="Type your question... ✨" 
+                style="width: 100%; 
+                       padding: 12px 16px; 
+                       border-radius: 50px; 
+                       border: 2px solid ${inputBorder}; 
+                       outline: none;
+                       background: ${inputBg};
+                       color: ${textColor};
+                       font-size: 1rem;
+                       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                       transition: all 0.3s;"
+                autocomplete="off"
+            />
+        `;
             document.body.appendChild(chat);
 
+            // Close button
             document.getElementById('close-bot').addEventListener('click', () => {
-                chat.remove();
+                chat.style.transform = 'scale(0.95)';
+                chat.style.opacity = '0';
+                setTimeout(() => chat.remove(), 300);
             });
 
+            // Input focus
             const input = document.getElementById('bot-input');
             input.focus();
+
+            // Handle questions
             input.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter' && e.target.value.trim()) {
                     const q = e.target.value.toLowerCase();
-                    let reply = "Hmm... good question! 🤔";
+                    let reply = "🤔 Hmm... let me check my cosmic database!";
 
-                    if (q.includes('join')) reply = "🚀 Join our Discord: discord.gg/codeclub";
-                    if (q.includes('event') || q.includes('next')) reply = "📅 Next: Mentor Speed Dating, Sep 20! 💞";
-                    if (q.includes('help') || q.includes('stuck')) reply = "🆘 Stuck? Email mentors@codeclub.edu or DM on Discord!";
-                    if (q.includes('swag') || q.includes('prize')) reply = "🎁 Submit 4 PRs in Sept → Get T-shirt + stickers!";
+                    if (q.includes('join') || q.includes('discord')) {
+                        reply = "🚀 Blast off to our Discord: <strong>discord.gg/codeclub</strong><br>First stop: #welcome channel!";
+                    }
+                    if (q.includes('event') || q.includes('next') || q.includes('schedule')) {
+                        reply = "📅 Upcoming Events:<br>• Sep 5 — Git Workshop<br>• Sep 12 — Web Game Jam<br>• Sep 20 — Mentor Speed Dating 💞<br><em>Check #events for details!</em>";
+                    }
+                    if (q.includes('help') || q.includes('stuck') || q.includes('error')) {
+                        reply = "🆘 SOS Signal Received!<br>Email: mentors@codeclub.edu<br>Or DM any mentor on Discord — we reply in < 1 hour!";
+                    }
+                    if (q.includes('swag') || q.includes('prize') || q.includes('t-shirt')) {
+                        reply = "🎁 Swag Alert!<br>Submit 4 PRs in September → Get Club T-shirt + Stickers!<br>Top 3 contributors → Free mentor session + featured in next newsletter!";
+                    }
+                    if (q.includes('konami') || q.includes('secret') || q.includes('easter egg')) {
+                        reply = "👾 Psst... try this:<br>↑ ↑ ↓ ↓ ← → ← → B A<br>...then watch the magic happen. Don’t tell anyone!";
+                    }
+                    if (q.includes('suggest') || q.includes('idea') || q.includes('request')) {
+                        reply = "🌠 Love that energy!<br>Scroll down to ‘What’s Your Dream Newsletter?’ and launch your suggestion to our dev team!";
+                    }
 
+                    // Add user message
                     document.getElementById('bot-messages').innerHTML += `
-            <div style="text-align: right; margin-bottom: 10px;">
-              <div style="background: #4ecdc4; color: white; padding: 10px; border-radius: 10px; display: inline-block; font-size: 0.9rem;">
-                ${e.target.value}
-              </div>
-            </div>
-            <div style="background: #f0f0f0; padding: 10px; border-radius: 10px; margin-bottom: 10px; font-size: 0.9rem;">
-              ${reply}
-            </div>
-          `;
+                    <div style="text-align: right; margin-bottom: 12px;">
+                        <div style="background: ${userMsgBg}; color: white; padding: 12px; border-radius: 12px; display: inline-block; font-size: 0.95rem; line-height: 1.4; max-width: 85%;">
+                            <strong>You:</strong> ${e.target.value}
+                        </div>
+                    </div>
+                `;
+
+                    // Add bot reply (with slight delay for realism)
+                    setTimeout(() => {
+                        document.getElementById('bot-messages').innerHTML += `
+                        <div style="margin-bottom: 12px;">
+                            <div style="background: ${botMsgBg}; padding: 12px; border-radius: 12px; font-size: 0.95rem; line-height: 1.4;">
+                                <strong>Cosmic Helper:</strong><br>${reply}
+                            </div>
+                        </div>
+                    `;
+                        // Auto-scroll to bottom
+                        const messages = document.getElementById('bot-messages');
+                        messages.scrollTop = messages.scrollHeight;
+                    }, 600);
+
                     e.target.value = '';
-                    document.getElementById('bot-messages').scrollTop = document.getElementById('bot-messages').scrollHeight;
                 }
             });
+
+            // Auto-scroll on open
+            setTimeout(() => {
+                const messages = document.getElementById('bot-messages');
+                messages.scrollTop = messages.scrollHeight;
+            }, 100);
         });
     }
 

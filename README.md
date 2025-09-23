@@ -10,6 +10,6 @@ A joyful, animative newsletter site designed to make freshers smile!
 - Easter eggs (try Konami code!)
 - Achievement system
 
-Deployed at: https://yourusername.github.io/coding-club-newsletter
+Deployed at: https://coding-club-nit-nagaland.github.io/coding-club-newsletter/
 
 Built with ❤️ for new coders.
