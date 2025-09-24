@@ -347,7 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const card = document.createElement('div');
                 card.className = 'ride-card slide-in-left';
                 card.innerHTML = `
-          <a href="../newsletters/${nl.date}.html" style="text-decoration:none; color:inherit; display: block;">
+          <a href="./newsletters/${nl.date}.html" style="text-decoration:none; color:inherit; display: block;">
             <img src="${nl.image}" alt="${nl.title}" style="width:100%; border-radius:10px; margin-bottom:15px;">
             <h4>${nl.title}</h4>
             <p>${nl.description}</p>
