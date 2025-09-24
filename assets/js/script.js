@@ -317,21 +317,21 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 title: "September 2025",
                 date: "2025-09",
-                image: "../assets/images/sep-cover.jpg",
+                image: "assets/images/sep-cover.jpg",
                 description: "Hacktoberfest Kickoff!",
                 tags: ["hackathon", "tutorial"]
             },
             {
                 title: "August 2025",
                 date: "2025-08",
-                image: "../assets/images/aug-cover.jpg",
+                image: "assets/images/aug-cover.jpg",
                 description: "Freshers Week Madness!",
                 tags: ["meme", "event"]
             },
             {
                 title: "July 2025",
                 date: "2025-07",
-                image: "../assets/images/july-cover.jpg",
+                image: "assets/images/july-cover.jpg",
                 description: "Summer Project Showcase",
                 tags: ["tutorial", "project", "event"]
             }
