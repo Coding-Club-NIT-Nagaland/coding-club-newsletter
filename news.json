@@ -1,0 +1,69 @@
+{
+    "featured": {
+        "title": "OpenAI Launches GPT-5 for Developers",
+        "summary": "The next-gen AI model revolutionizes code generation, research, and learning with 10x faster inference and student-friendly APIs.",
+        "image": "assets/images/gpt5.png",
+        "link": "https://openai.com/gpt5",
+        "category": "AI"
+    },
+    "updates": [
+        {
+            "title": "Google Unveils Gemini API for Students",
+            "category": "AI",
+            "date": "Sept 2025",
+            "link": "https://ai.google.dev/gemini"
+        },
+        {
+            "title": "NIT Nagaland Hackathon Registration Open",
+            "category": "Hackathon",
+            "date": "Sept 2025",
+            "link": "/newsletters/2025-09.html"
+        },
+        {
+            "title": "New Rust Course Launched by Coding Club",
+            "category": "Learning",
+            "date": "Aug 2025",
+            "link": "/newsletters/2025-08.html"
+        },
+        {
+            "title": "Top 5 AI Tools for Competitive Coders",
+            "category": "Tools",
+            "date": "Sept 2025",
+            "link": "#"
+        }
+    ],
+    "tips": [
+        {
+            "title": "Top 5 VS Code Extensions for Students",
+            "link": "#"
+        },
+        {
+            "title": "How to Optimize DSA Practice with AI",
+            "link": "#"
+        }
+    ],
+    "events": [
+        {
+            "name": "Codeforces Round #925",
+            "date": "Sept 28, 2025",
+            "details": "International competitive coding contest. Rated for Div. 2."
+        },
+        {
+            "name": "Coding Club Hackathon 2025",
+            "date": "Oct 15, 2025",
+            "details": "48-hour marathon for AI and Web projects. Prizes up to ₹10k!"
+        }
+    ],
+    "highlights": [
+        {
+            "name": "Satyam Singh",
+            "achievement": "Built an AI-powered healthcare assistant showcased at Tech Avinya 2025.",
+            "image": "assets/images/satyam.jpg"
+        },
+        {
+            "name": "Priya Mehta",
+            "achievement": "Selected for Google Summer of Code 2025 with Rust project.",
+            "image": "assets/images/default-avatar.png"
+        }
+    ]
+}
